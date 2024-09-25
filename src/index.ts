@@ -12,8 +12,9 @@ export interface MailReporterOptions {
   // SMTP options
   host?: string;
   port?: number;
-  username?: string;
-  password?: string;
+  secure: boolean;
+  username?: string | undefined;
+  password?: string | undefined;
   // Mail options
   from: string | undefined;
   to: string | undefined;
@@ -34,6 +35,7 @@ class MailReporter implements Reporter {
       port: undefined,
       username: undefined,
       password: undefined,
+      secure: false,
       from: undefined,
       to: undefined,
       subject: "Playwright Test Results",
